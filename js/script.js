@@ -6,9 +6,7 @@ let orderedAmounts = {
     'wijn' : 0,
     '8bitterballen' : 0,
     '16bitterballen' : 0
-};
-
-products["var"]
+}
 
 //Begin functie
 function Main(){
@@ -94,25 +92,33 @@ function AddSnackToBill(orderType, amount, amount2){
 
 //Rekening berekenen
 function Bill(){
+    let price1 = 0, price2 = 0, price3 = 0, price4 = 0, price5 = 0
     let bill = document.getElementById('bill')
     if(orderedAmounts['fris'] != 0){
-        let price = orderedAmounts['fris'] * prices[0]
-        bill.innerHTML += ("Fris: " + orderedAmounts['fris'] + " Prijs: " + orderedAmounts['fris'] + " * " + prices[0] + " = €" + price + "<br>") 
+        price1 = orderedAmounts['fris'] * prices[0]
+        bill.innerHTML += ("Fris: " + orderedAmounts['fris'] + " Prijs: " + orderedAmounts['fris'] + " * " + prices[0] + " = €" + price1 + "<br>") 
     }
     if(orderedAmounts['bier'] != 0){
-        let price = orderedAmounts['bier'] * prices[1]
-        bill.innerHTML += ("Bier: " + orderedAmounts['bier'] + " Prijs: " + orderedAmounts['bier'] + " * " + prices[1] + " = €" + price + "<br>")
+        price2 = orderedAmounts['bier'] * prices[1]
+        bill.innerHTML += ("Bier: " + orderedAmounts['bier'] + " Prijs: " + orderedAmounts['bier'] + " * " + prices[1] + " = €" + price2 + "<br>")
     }
     if(orderedAmounts['wijn'] != 0){
-        let price = orderedAmounts['wijn'] * prices[2]
-        bill.innerHTML += ("Wijn: " + orderedAmounts['wijn'] + " Prijs: " + orderedAmounts['wijn'] + " * " + prices[2] + " = €" + price + "<br>")
+        price3 = orderedAmounts['wijn'] * prices[2]
+        bill.innerHTML += ("Wijn: " + orderedAmounts['wijn'] + " Prijs: " + orderedAmounts['wijn'] + " * " + prices[2] + " = €" + price3 + "<br>")
     }
     if(orderedAmounts['8bitterballen'] != 0){
-        let price = orderedAmounts['8bitterballen'] * prices[3]
-        bill.innerHTML += ("Bitterballen in schalen van 8: " + orderedAmounts['8bitterballen'] + " Prijs: " + orderedAmounts['8bitterballen'] + " * " + prices[3] + " = €" + price + "<br>")
+        price4 = orderedAmounts['8bitterballen'] * prices[3]
+        bill.innerHTML += ("Bitterballen in schalen van 8: " + orderedAmounts['8bitterballen'] + " Prijs: " + orderedAmounts['8bitterballen'] + " * " + prices[3] + " = €" + price4 + "<br>")
     }
     if(orderedAmounts['16bitterballen'] != 0){
-        let price = orderedAmounts['16bitterballen'] * prices[4]
-        bill.innerHTML += ("Bitterballen in schalen van 16: " + orderedAmounts['16bitterballen'] + " Prijs: " + orderedAmounts['16bitterballen'] + " * " + prices[4] + " = €" + price + "<br>")
+        price5 = orderedAmounts['16bitterballen'] * prices[4]
+        bill.innerHTML += ("Bitterballen in schalen van 16: " + orderedAmounts['16bitterballen'] + " Prijs: " + orderedAmounts['16bitterballen'] + " * " + prices[4] + " = €" + price5 + "<br>")
     }
+
+    let totaal = parseInt(price1) 
+    totaal += parseInt(price2) 
+    totaal += parseInt(price3) 
+    totaal += parseInt(price4) 
+    totaal += parseInt(price5)
+    bill.innerHTML += ("Totaal: €" + totaal)
 }
