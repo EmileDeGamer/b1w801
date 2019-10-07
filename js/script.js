@@ -109,10 +109,10 @@ function Bill(){
     }
     if(orderedAmounts['8bitterballen'] != 0){
         let price = orderedAmounts['8bitterballen'] * prices[3]
-        bill.innerHTML += ("Bitterballen in schalen van 8: " + orderedAmounts['8bitterballen'] + " Prijs: " + orderedAmounts[3] + " * " + prices[3] + " = €" + price + "<br>")
+        bill.innerHTML += ("Bitterballen in schalen van 8: " + orderedAmounts['8bitterballen'] + " Prijs: " + orderedAmounts['8bitterballen'] + " * " + prices[3] + " = €" + price + "<br>")
     }
     if(orderedAmounts['16bitterballen'] != 0){
         let price = orderedAmounts['16bitterballen'] * prices[4]
-        bill.innerHTML += ("Bitterballen in schalen van 16: " + orderedAmounts['16bitterballen'] + " Prijs: " + orderedAmounts[4] + " * " + prices[4] + " = €" + price + "<br>")
+        bill.innerHTML += ("Bitterballen in schalen van 16: " + orderedAmounts['16bitterballen'] + " Prijs: " + orderedAmounts['16bitterballen'] + " * " + prices[4] + " = €" + price + "<br>")
     }
 }
