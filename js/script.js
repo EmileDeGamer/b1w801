@@ -1,10 +1,11 @@
 let order
 let prices = [1.50, 2, 2.50, 3, 6]
-let orderedAmounts = [0, 0, 0, 0, 0]
-
-let products = {
+let orderedAmounts = {
     'bier' : 0,
-    'fris' : 0
+    'fris' : 0,
+    'wijn' : 0,
+    '8bitterballen' : 0,
+    '16bitterballen' : 0
 };
 
 products["var"]
@@ -65,7 +66,6 @@ function AddOrder(orderType){
         }
         else if(!isNaN(question.toLowerCase().trim())){
             AddToBill(orderType, question)
-            console.log("hier")
         }
         else{
             AddOrder(orderType)
@@ -75,17 +75,7 @@ function AddOrder(orderType){
 
 //Drinken toevoegen aan de rekening
 function AddToBill(orderType, amount){
-    console.log("hier")
-    if(orderType == "fris"){
-        orderedAmounts[0] += parseInt(amount)
-        console.log("hier")
-    }
-    else if (orderType == "bier"){
-        orderedAmounts[1] += parseInt(amount)
-    }
-    else if (orderType == "wijn"){
-        orderedAmounts[2] += parseInt(amount)
-    }
+    orderedAmounts[orderType] += parseInt(amount)
     Main()
 }
 
@@ -93,10 +83,10 @@ function AddToBill(orderType, amount){
 function AddSnackToBill(orderType, amount, amount2){
     if(orderType == "snack"){
         if (amount == 8){
-            orderedAmounts[3] += parseInt(amount2)
+            orderedAmounts['8bitterballen'] += parseInt(amount2)
         }
         else if (amount == 16){
-            orderedAmounts[4] += parseInt(amount2)
+            orderedAmounts['16bitterballen'] += parseInt(amount2)
         }
     }
     Main()
@@ -105,24 +95,24 @@ function AddSnackToBill(orderType, amount, amount2){
 //Rekening berekenen
 function Bill(){
     let bill = document.getElementById('bill')
-    if(orderedAmounts[0] != 0){
-        let price = orderedAmounts[0] * prices[0]
-        bill.innerHTML += ("Fris: " + orderedAmounts[0] + " Prijs: " + orderedAmounts[0] + " * " + prices[0] + " = €" + price + "<br>") 
+    if(orderedAmounts['fris'] != 0){
+        let price = orderedAmounts['fris'] * prices[0]
+        bill.innerHTML += ("Fris: " + orderedAmounts['fris'] + " Prijs: " + orderedAmounts['fris'] + " * " + prices[0] + " = €" + price + "<br>") 
     }
-    if(orderedAmounts[1] != 0){
-        let price = orderedAmounts[1] * prices[1]
-        bill.innerHTML += ("Bier: " + orderedAmounts[1] + " Prijs: " + orderedAmounts[1] + " * " + prices[1] + " = €" + price + "<br>")
+    if(orderedAmounts['bier'] != 0){
+        let price = orderedAmounts['bier'] * prices[1]
+        bill.innerHTML += ("Bier: " + orderedAmounts['bier'] + " Prijs: " + orderedAmounts['bier'] + " * " + prices[1] + " = €" + price + "<br>")
     }
-    if(orderedAmounts[2] != 0){
-        let price = orderedAmounts[2] * prices[2]
-        bill.innerHTML += ("Wijn: " + orderedAmounts[2] + " Prijs: " + orderedAmounts[2] + " * " + prices[2] + " = €" + price + "<br>")
+    if(orderedAmounts['wijn'] != 0){
+        let price = orderedAmounts['wijn'] * prices[2]
+        bill.innerHTML += ("Wijn: " + orderedAmounts['wijn'] + " Prijs: " + orderedAmounts['wijn'] + " * " + prices[2] + " = €" + price + "<br>")
     }
-    if(orderedAmounts[3] != 0){
-        let price = orderedAmounts[3] * prices[3]
-        bill.innerHTML += ("Bitterballen in schalen van 8: " + orderedAmounts[3] + " Prijs: " + orderedAmounts[3] + " * " + prices[3] + " = €" + price + "<br>")
+    if(orderedAmounts['8bitterballen'] != 0){
+        let price = orderedAmounts['8bitterballen'] * prices[3]
+        bill.innerHTML += ("Bitterballen in schalen van 8: " + orderedAmounts['8bitterballen'] + " Prijs: " + orderedAmounts[3] + " * " + prices[3] + " = €" + price + "<br>")
     }
-    if(orderedAmounts[4] != 0){
-        let price = orderedAmounts[4] * prices[4]
-        bill.innerHTML += ("Bitterballen in schalen van 16: " + orderedAmounts[4] + " Prijs: " + orderedAmounts[4] + " * " + prices[4] + " = €" + price + "<br>")
+    if(orderedAmounts['16bitterballen'] != 0){
+        let price = orderedAmounts['16bitterballen'] * prices[4]
+        bill.innerHTML += ("Bitterballen in schalen van 16: " + orderedAmounts['16bitterballen'] + " Prijs: " + orderedAmounts[4] + " * " + prices[4] + " = €" + price + "<br>")
     }
 }
