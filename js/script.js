@@ -7,6 +7,8 @@ let products = {
     'fris' : 0
 };
 
+products.bier
+
 //Begin functie
 function Main(){
     let question = prompt("Welke bestelling wilt u toevoegen?:", "Fris, Bier, Wijn, Snack")
