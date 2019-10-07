@@ -7,7 +7,7 @@ let products = {
     'fris' : 0
 };
 
-products.bier
+products["var"]
 
 //Begin functie
 function Main(){
