@@ -2,6 +2,11 @@ let order
 let prices = [1.50, 2, 2.50, 3, 6]
 let orderedAmounts = [0, 0, 0, 0, 0]
 
+let products = {
+    'bier' : 0,
+    'fris' : 0
+};
+
 //Begin functie
 function Main(){
     let question = prompt("Welke bestelling wilt u toevoegen?:", "Fris, Bier, Wijn, Snack")
